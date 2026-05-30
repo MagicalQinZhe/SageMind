@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SageMind - 本机 AI 聊天与技能助手</title>
+    <meta
+      name="description"
+      content="SageMind 是一款离线优先的本机 AI 助手，支持聊天、每日单词、心灵鸡汤、数独、心情记录、多语言和主题切换。"
+    />
+    <meta property="og:title" content="SageMind" />
+    <meta property="og:description" content="本机 AI 聊天与技能助手。" />
+    <meta property="og:image" content="assets/brand/feature-graphic.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#2f8d78" />
+    <link rel="icon" href="assets/brand/icon-512.jpg" />
+    <link rel="apple-touch-icon" href="assets/brand/icon-512.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="SageMind home">
+        <img src="assets/brand/icon-512.jpg" alt="" />
+        <span>SageMind</span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="#skills">技能</a>
+        <a href="#screens">截图</a>
+        <a href="#support">支持</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">离线优先 · 本机模型 · Sage Skills</p>
+          <h1 id="hero-title">
+            <span>把轻量 AI 助手</span>
+            <span>放进口袋里。</span>
+          </h1>
+          <p class="hero-lede">
+            SageMind 将自然聊天、每日单词、心灵鸡汤、数独和心情记录放在一个简洁空间里。首次下载模型后，常用聊天和内置技能可在离线优先的环境中继续使用。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#screens">查看界面</a>
+            <a class="button secondary" href="https://github.com/MagicalQinZhe/SageMind/">GitHub</a>
+          </div>
+          <p class="small-note">支持简体中文、繁体中文和 English。</p>
+        </div>
+
+        <div class="hero-stage" aria-hidden="true">
+          <img class="phone phone-main" src="assets/screenshots/chat.jpg" alt="" />
+          <img class="phone phone-side" src="assets/screenshots/skills.jpg" alt="" />
+        </div>
+      </section>
+
+      <section class="section intro" aria-label="SageMind 简介">
+        <p>
+          SageMind 面向想要轻量 AI 助手、英语学习卡片、情绪记录、数独练习和本机技能工具的用户。它不把入口做复杂，把常见的小任务整理成可以反复使用的卡片。
+        </p>
+      </section>
+
+      <section id="skills" class="section" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="eyebrow">Sage Skills</p>
+          <h2 id="skills-title">聊天之外，也能直接完成小任务。</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span class="feature-icon">AI</span>
+            <h3>本机聊天</h3>
+            <p>加载轻量模型后，即可在手机上进行自然对话，适合随手提问和整理想法。</p>
+          </article>
+          <article>
+            <span class="feature-icon">词</span>
+            <h3>每日单词</h3>
+            <p>生成英文单词卡片，包含音标、释义、例句和收藏，适合碎片时间学习。</p>
+          </article>
+          <article>
+            <span class="feature-icon">数</span>
+            <h3>数独小游戏</h3>
+            <p>支持简单、中等、困难、地狱四种难度，生成宫格并在 WebView 中交互解题。</p>
+          </article>
+          <article>
+            <span class="feature-icon">心</span>
+            <h3>心情记录</h3>
+            <p>用一句话记录当天状态，让情绪变化更容易被看见和回顾。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="screens" class="section screen-section" aria-labelledby="screens-title">
+        <div class="section-heading">
+          <p class="eyebrow">Screenshots</p>
+          <h2 id="screens-title">干净、直接、可快速扫描。</h2>
+        </div>
+        <div class="screens">
+          <figure>
+            <img src="assets/screenshots/chat.jpg" alt="SageMind 聊天首页截图" />
+            <figcaption>聊天首页</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshots/sudoku.jpg" alt="SageMind 数独技能截图" />
+            <figcaption>数独技能</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/screenshots/word.jpg" alt="SageMind 每日单词截图" />
+            <figcaption>每日单词</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section details" aria-labelledby="details-title">
+        <div>
+          <p class="eyebrow">Designed for everyday use</p>
+          <h2 id="details-title">先下载模型，后续更少依赖网络。</h2>
+        </div>
+        <ul>
+          <li>首次加载模型时需要联网下载，下载完成后会缓存在本机。</li>
+          <li>支持浅色、深色和跟随系统主题。</li>
+          <li>支持添加个人技能目录，将更多本地工具整合进自己的工作流。</li>
+        </ul>
+      </section>
+
+      <section id="support" class="section support" aria-labelledby="support-title">
+        <p class="eyebrow">Support</p>
+        <h2 id="support-title">需要帮助或反馈？</h2>
+        <p>
+          可以在 GitHub 上提交问题、建议或截图反馈。SageMind 会继续围绕本机 AI、Sage Skills 和移动端体验迭代。
+        </p>
+        <a class="button primary" href="https://github.com/MagicalQinZhe/SageMind/issues">提交反馈</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 MagicalQinZhe</span>
+      <a href="https://github.com/MagicalQinZhe/SageMind/">GitHub</a>
+    </footer>
+  </body>
+</html>

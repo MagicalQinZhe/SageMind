@@ -2,6 +2,9 @@
 
 Marketing website for SageMind.
 
+The landing page follows the visitor's browser language by default and supports
+manual Simplified Chinese / English switching from the top-right selector.
+
 GitHub Pages URL:
 
 ```text

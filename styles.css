@@ -80,6 +80,36 @@ img {
   font-weight: 700;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 24px);
+}
+
+.language-select {
+  min-height: 36px;
+  max-width: 150px;
+  padding: 7px 32px 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%) calc(100% - 16px)
+      50% / 6px 6px no-repeat,
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%) calc(100% - 10px)
+      50% / 6px 6px no-repeat,
+    rgba(255, 255, 255, 0.72);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.language-select:focus-visible {
+  outline: 3px solid rgba(47, 141, 120, 0.24);
+  outline-offset: 2px;
+}
+
 .hero {
   position: relative;
   min-height: 92svh;
@@ -480,10 +510,30 @@ figcaption {
 @media (max-width: 640px) {
   .site-header {
     padding: 14px 18px;
+    gap: 12px;
+    justify-content: flex-start;
   }
 
   .site-header nav {
     display: none;
+  }
+
+  .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .header-actions {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .language-select {
+    width: 112px;
+    max-width: 112px;
+    min-height: 34px;
+    padding-left: 10px;
+    font-size: 13px;
   }
 
   .brand span {

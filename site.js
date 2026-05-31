@@ -6,6 +6,10 @@ const translations = {
     "meta.description":
       "SageMind 是一款离线优先的本机 AI 助手，支持聊天、每日单词、心灵鸡汤、数独、心情记录、多语言和主题切换。",
     "meta.ogDescription": "本机 AI 聊天与技能助手。",
+    "privacy.meta.title": "SageMind 隐私政策",
+    "privacy.meta.description":
+      "SageMind 隐私政策：说明本机 AI、模型下载、个人技能、本地缓存和权限使用。",
+    "privacy.meta.ogDescription": "SageMind 隐私政策。",
     "language.label": "语言",
     "language.auto": "跟随系统",
     "nav.skills": "技能",
@@ -53,6 +57,7 @@ const translations = {
     "support.body":
       "可以在 GitHub 上提交问题、建议或截图反馈。SageMind 会继续围绕本机 AI、Sage Skills 和移动端体验迭代。",
     "support.button": "提交反馈",
+    "footer.home": "首页",
     "footer.privacy": "隐私政策",
   },
   en: {
@@ -60,6 +65,10 @@ const translations = {
     "meta.description":
       "SageMind is an offline-first on-device AI assistant for chat, daily words, inspirational quotes, Sudoku, mood tracking, multilingual use, and theme selection.",
     "meta.ogDescription": "On-device AI chat and skill cards.",
+    "privacy.meta.title": "SageMind Privacy Policy",
+    "privacy.meta.description":
+      "SageMind Privacy Policy: on-device AI, model downloads, personal skills, local cache, and permission use.",
+    "privacy.meta.ogDescription": "SageMind Privacy Policy.",
     "language.label": "Language",
     "language.auto": "System",
     "nav.skills": "Skills",
@@ -109,6 +118,7 @@ const translations = {
     "support.body":
       "Open an issue on GitHub with questions, suggestions, or screenshots. SageMind will continue improving around on-device AI, Sage Skills, and the mobile experience.",
     "support.button": "Send Feedback",
+    "footer.home": "Home",
     "footer.privacy": "Privacy Policy",
   },
 };
@@ -170,12 +180,20 @@ function setPropertyMeta(property, content) {
 function applyLanguage(preference) {
   const language = resolveLanguage(preference);
   const dictionary = translations[language];
+  const page = document.body.dataset.page;
+  const metaPrefix = page ? `${page}.` : "";
+  const metaTitle = dictionary[`${metaPrefix}meta.title`] || dictionary["meta.title"];
+  const metaDescription =
+    dictionary[`${metaPrefix}meta.description`] || dictionary["meta.description"];
+  const metaOgDescription =
+    dictionary[`${metaPrefix}meta.ogDescription`] ||
+    dictionary["meta.ogDescription"];
 
   document.documentElement.lang = language === "zh" ? "zh-Hans" : "en";
   document.documentElement.dataset.language = language;
-  document.title = dictionary["meta.title"];
-  setMeta("description", dictionary["meta.description"]);
-  setPropertyMeta("og:description", dictionary["meta.ogDescription"]);
+  document.title = metaTitle;
+  setMeta("description", metaDescription);
+  setPropertyMeta("og:description", metaOgDescription);
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
@@ -196,6 +214,10 @@ function applyLanguage(preference) {
     if (dictionary[key]) {
       element.setAttribute("aria-label", dictionary[key]);
     }
+  });
+
+  document.querySelectorAll("[data-language-panel]").forEach((element) => {
+    element.hidden = element.dataset.languagePanel !== language;
   });
 
   const selector = document.querySelector("[data-language-select]");

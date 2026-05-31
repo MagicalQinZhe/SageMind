@@ -190,6 +190,36 @@ function setPropertyMeta(property, content) {
   }
 }
 
+function applyScreenshots(language) {
+  document.querySelectorAll("[data-screenshot]").forEach((element) => {
+    const key = element.dataset.screenshot;
+    const filename = screenshotFilenames[key];
+    const directory = screenshotDirectories[language];
+    if (!filename || !directory) {
+      return;
+    }
+
+    const nextSource = `${directory}/${filename}`;
+    if (element.getAttribute("src") === nextSource) {
+      element.classList.remove("localized-screenshot-loading");
+      return;
+    }
+
+    element.classList.add("localized-screenshot-loading");
+    element.addEventListener(
+      "load",
+      () => element.classList.remove("localized-screenshot-loading"),
+      { once: true },
+    );
+    element.addEventListener(
+      "error",
+      () => element.classList.remove("localized-screenshot-loading"),
+      { once: true },
+    );
+    element.setAttribute("src", nextSource);
+  });
+}
+
 function applyLanguage(preference) {
   const language = resolveLanguage(preference);
   const dictionary = translations[language];
@@ -207,6 +237,7 @@ function applyLanguage(preference) {
   document.title = metaTitle;
   setMeta("description", metaDescription);
   setPropertyMeta("og:description", metaOgDescription);
+  applyScreenshots(language);
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.dataset.i18n;
@@ -231,15 +262,6 @@ function applyLanguage(preference) {
 
   document.querySelectorAll("[data-language-panel]").forEach((element) => {
     element.hidden = element.dataset.languagePanel !== language;
-  });
-
-  document.querySelectorAll("[data-screenshot]").forEach((element) => {
-    const key = element.dataset.screenshot;
-    const filename = screenshotFilenames[key];
-    const directory = screenshotDirectories[language];
-    if (filename && directory) {
-      element.setAttribute("src", `${directory}/${filename}`);
-    }
   });
 
   const selector = document.querySelector("[data-language-select]");

@@ -41,6 +41,14 @@ img {
   max-width: 100%;
 }
 
+[data-screenshot] {
+  transition: opacity 160ms ease;
+}
+
+.localized-screenshot-loading {
+  opacity: 0;
+}
+
 .site-header {
   position: fixed;
   z-index: 20;

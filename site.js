@@ -123,6 +123,19 @@ const translations = {
   },
 };
 
+const screenshotDirectories = {
+  zh: "assets/screenshots/zh-Hans",
+  en: "assets/screenshots/en-US",
+};
+
+const screenshotFilenames = {
+  chat: "chat.jpg",
+  skills: "skills.jpg",
+  sudoku: "sudoku.jpg",
+  word: "word.jpg",
+  settings: "settings.jpg",
+};
+
 function readLanguagePreference() {
   const urlLanguage = new URLSearchParams(window.location.search).get("lang");
   if (urlLanguage === "zh" || urlLanguage === "en") {
@@ -218,6 +231,15 @@ function applyLanguage(preference) {
 
   document.querySelectorAll("[data-language-panel]").forEach((element) => {
     element.hidden = element.dataset.languagePanel !== language;
+  });
+
+  document.querySelectorAll("[data-screenshot]").forEach((element) => {
+    const key = element.dataset.screenshot;
+    const filename = screenshotFilenames[key];
+    const directory = screenshotDirectories[language];
+    if (filename && directory) {
+      element.setAttribute("src", `${directory}/${filename}`);
+    }
   });
 
   const selector = document.querySelector("[data-language-select]");
